@@ -5,4 +5,4 @@ echo "Running cargo fmt..."
 cargo +nightly fmt --all
 
 # Stage any formatting changes
-git diff --name-only | grep '\.rs$' | xargs -r git add
+git diff --name-only | (grep '\.rs$' || true) | xargs -r git add || true
