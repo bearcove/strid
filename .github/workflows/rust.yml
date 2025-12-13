@@ -2,24 +2,21 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
-      - staging
-      - trying
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  merge_group:
 
 env:
   CARGO_TERM_COLOR: always
-  CARGO_UNSTABLE_SPARSE_REGISTRY: true
+  RUST_BACKTRACE: 1
 
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@nightly
         with:
           components: rustfmt
@@ -27,16 +24,16 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy
-      - uses: Swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2
-      - run: cargo clippy -- -D warnings
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo clippy --all-targets --all-features -- -D warnings
 
   test:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2
+      - uses: Swatinem/rust-cache@v2
       - name: Install nextest
         uses: taiki-e/install-action@nextest
       - run: cargo nextest run --no-fail-fast
@@ -46,8 +43,8 @@ jobs:
     name: Miri
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@miri
-      - uses: Swatinem/rust-cache@23bce251a8cd2ffc3c1075eaa2367cf899916d84 # v2
+      - uses: Swatinem/rust-cache@v2
       - run: cargo miri setup
       - run: cargo miri test --no-fail-fast
