@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "Running cargo fmt..."
+cargo +nightly fmt --all
+
+# Stage any formatting changes
+git diff --name-only | grep '\.rs$' | xargs -r git add
