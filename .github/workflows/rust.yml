@@ -44,7 +44,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@miri
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: miri
       - uses: Swatinem/rust-cache@v2
       - run: cargo miri setup
       - run: cargo miri test --no-fail-fast
