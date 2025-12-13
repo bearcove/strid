@@ -12,5 +12,5 @@ repository = "https://github.com/bearcove/strid"
 [workspace.dependencies]
 proc-macro2 = "1.0"
 quote = "1.0"
-syn = { version = "2.0", features = ["full"] }
+unsynn = "0.3.0"
 facet = { version = "0.32.2", features = ["bytes"] }
