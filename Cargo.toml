@@ -13,4 +13,4 @@ repository = "https://github.com/bearcove/strid"
 proc-macro2 = "1.0"
 quote = "1.0"
 unsynn = "0.3.0"
-facet = { version = "0.32.2", features = ["bytes"] }
+facet = { version = "0.34", features = ["bytes"] }
