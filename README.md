@@ -1,5 +1,17 @@
 # strid
 
+## This repository has moved
+
+`strid` is now maintained in the Facet monorepo:
+
+- Repository: <https://github.com/facet-rs/facet>
+- `strid` crate source: <https://github.com/facet-rs/facet/tree/main/strid>
+- `strid-macros` crate source: <https://github.com/facet-rs/facet/tree/main/strid-macros>
+- `strid-examples` crate source: <https://github.com/facet-rs/facet/tree/main/strid-examples>
+
+Please open future issues and pull requests against `facet-rs/facet`. This
+repository is kept for historical context and will be archived.
+
 [![Build Status](https://github.com/bearcove/strid/actions/workflows/rust.yml/badge.svg?branch=main&event=push)](https://github.com/bearcove/strid)
 
 **strid** (string id) is a fork of [aliri_braid](https://github.com/neoeinstein/aliri_braid) brought up to speed with Rust edition 2024 and adding support for [facet](https://crates.io/crates/facet).
