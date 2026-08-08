@@ -3,23 +3,23 @@ name = "strid"
 description = "Improve and strengthen your strings by making them strongly-typed with less boilerplate"
 keywords = [ "string", "newtype", "validation", "normalization" ]
 categories = [ "data-structures", "rust-patterns" ]
-version = "11.0.0-rc.0"
-authors.workspace = true
+version = "11.0.0-rc.5"
+authors = ["Marcus Griep <marcus@griep.us>"]
 edition.workspace = true
+rust-version.workspace = true
 license.workspace = true
 repository.workspace = true
-readme = "../../README.md"
+readme = "README.md"
 
 [features]
 default = ["alloc"]
 alloc = []
 
 [dependencies]
-strid-macros = { version = "11.0.0-rc.0", path = "../strid-macros" }
-facet.workspace = true
+strid-macros.workspace = true
+facet = { workspace = true, features = ["bytes"] }
 
 [dev-dependencies]
-bytes = "1"
 bytestring = "1.5"
 compact_str = "0.9"
 quickcheck = "1"
@@ -34,3 +34,6 @@ rustdoc-args = ["--cfg", "docsrs"]
 
 [package.metadata."docs.rs"]
 rustdoc-args = ["--html-in-header", "arborium-header.html"]
+
+[package.metadata.cargo-shear]
+ignored = ["serde"]
