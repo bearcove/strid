@@ -13,6 +13,6 @@ repository = "https://github.com/bearcove/strid"
 proc-macro2 = "1.0"
 quote = "1.0"
 unsynn = "0.3.0"
-facet = { git = "https://github.com/facet-rs/facet", rev = "5705fa6c51289bea49f5729c52dc5e23cedce4f8", features = ["bytes"] }
+facet = { git = "https://github.com/facet-rs/facet", branch = "deps/align-weavy-for-dibs", features = ["bytes"] }
 strid = { path = "crates/strid", version = "11.0.0-rc.5" }
 strid-macros = { path = "crates/strid-macros", version = "11.0.0-rc.4" }
